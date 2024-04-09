@@ -8,11 +8,11 @@ router.get('/', getTasks)
 
 router.get('/:id', getTask)
 
-router.post('', createTask)
+router.post('/', createTask)
 
-router.patch('update/:id', updateTask)
+router.patch('/update/:id', updateTask)
 
-router.delete('delete/:id', deleteTask)
+router.delete('/delete/:id', deleteTask)
 
 
 export default router
