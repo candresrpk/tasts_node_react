@@ -7,20 +7,22 @@
   "scripts": {
     "start": "node .",
     "dev": "nodemon ."
-
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@hapi/boom": "^10.0.1",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "express-promise-router": "^4.1.1",
+    "joi": "^17.12.3",
     "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.0",
     "pg": "^8.11.5",
     "pg-hstore": "^2.3.4",
+    "ph": "^0.1.10",
     "sequelize": "^6.37.2",
     "zod": "^3.22.4"
   },
