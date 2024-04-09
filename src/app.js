@@ -1,6 +1,9 @@
 import express from 'express'
 import morgan from 'morgan';
 
+import {logErrors, errorHandler, boomErrorHandler} from './middlewares/error.handler.js'
+
+
 const app = express()
 
 app.use(morgan('dev'))
@@ -11,12 +14,11 @@ app.get('/', (req,res) => {
     res.json({'message':'welcome to my api'})
 })
 
+app.use(logErrors)
+app.use(boomErrorHandler)
+app.use(errorHandler)
 
-app.use((err, req, res, next) => {
-    res.status(500).json({
-        'status':'error',
-        'message': err.message
-    })
-})
+
+
 
 export default app;
