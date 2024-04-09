@@ -1,30 +1,18 @@
 import { Router } from "express";
+import {getTasks, getTask, createTask, updateTask, deleteTask} from '../controllers/tasks.controller.js'
 
 
 const router = Router()
 
-router.get('/', (req, res) => {
-    res.send('getting all the tasks')
-})
+router.get('/', getTasks)
 
-router.get('/:id', (req, res) => {
+router.get('/:id', getTask)
 
-    const {id} = req.params
+router.post('', createTask)
 
-    res.send('getting a task ' + id)
-})
+router.patch('update/:id', updateTask)
 
-router.post('', (req, res) => {
-    res.send('making a task')
-})
-
-router.patch('update/:id', (req, res) => {
-    res.send('updating a task')
-})
-
-router.delete('delete/:id', (req, res) => {
-    res.send('deleting a ')
-})
+router.delete('delete/:id', deleteTask)
 
 
 export default router
