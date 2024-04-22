@@ -1,18 +1,18 @@
 import { Router } from "express";
 import {getTasks, getTask, createTask, updateTask, deleteTask} from '../controllers/tasks.controller.js'
-
+import {isAuth} from '../middlewares/auth.middleware.js'
 
 const router = Router()
 
-router.get('/', getTasks)
+router.get('/', isAuth, getTasks)
 
-router.get('/:id', getTask)
+router.get('/:id', isAuth, getTask)
 
-router.post('/', createTask)
+router.post('/', isAuth, createTask)
 
-router.patch('/update/:id', updateTask)
+router.patch('/update/:id', isAuth, updateTask)
 
-router.delete('/delete/:id', deleteTask)
+router.delete('/delete/:id', isAuth, deleteTask)
 
 
 export default router

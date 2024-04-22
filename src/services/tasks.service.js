@@ -1,5 +1,9 @@
 import boom  from "@hapi/boom";
 
+import sequelize from "../libs/sequelize.js";
+
+const models = sequelize.models
+
 class TasksService {
     constructor(){
 
@@ -20,9 +24,11 @@ class TasksService {
     }
 
     async create(data) {
+        const newTask = await models.Task.create(data)
 
         return {
-            'message': data
+            'message': 'Task created',
+            'task': newTask
         }
     }
 
